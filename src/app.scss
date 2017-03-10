@@ -1,0 +1,148 @@
+// animation inspired by http://codepen.io/designcouch/pen/obvKxm
+
+body, html{
+  height: 100%;
+}
+
+#donate-modal-container {
+  position:absolute;
+  display:table;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  z-index: 999;
+  transform:scale(0);
+  &.active {
+    transform:scale(1);
+    .donate-modal-background {
+      background:rgba(0,0,0,.7);
+      .donate-modal {
+        animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+  }
+
+  .donate-quote {
+    padding: 0;
+    margin: 0;
+  }
+
+  .donate-quote-left{
+    display: inline-block;
+    vertical-align: text-bottom;
+    width: 32px;
+    height: 32px;
+    background: url("https://ooo.0o0.ooo/2017/03/09/58c158afac35c.png");
+  }
+
+  .donate-quote-word {
+    font-size: 20px;
+    color: #333;
+  }
+
+  .donate-quote-right {
+    display: inline-block;
+    vertical-align: text-bottom;
+    width: 32px;
+    height: 32px;
+    background: url("https://ooo.0o0.ooo/2017/03/09/58c1584d5fd9d.png");
+  }
+
+  .donate-tab {
+    margin-top: 20px;
+    font-size: 0;
+    a {
+      display: inline-block;
+      padding: 10px 0;
+      width: 120px;
+      font-size: 16px;
+      text-decoration: none;
+      color: #333;
+      background-color: #eee;
+      transition: all .3s;
+    }
+
+    .donate-wechat.active {
+      background-color: #44b549;
+      color: #fff;
+    }
+
+    .donate-alipay.active {
+      background-color: #059AE3;
+      color: #fff;
+    }
+  }
+
+  .donate-image {
+    display: none;
+    min-height: 450px;
+    max-width: 300px;
+    margin: 20px auto;
+    &.active {
+      display: block;
+    }
+  }
+
+  .donate-modal-background {
+    display:table-cell;
+    background:rgba(0,0,0,.8);
+    text-align:center;
+    vertical-align:middle;
+    .donate-modal {
+      display:inline-block;
+      position:relative;
+      box-sizing: border-box;      
+      background:#fff;
+      max-width: 900px;
+      padding:50px;
+      border-radius:3px;
+      font-weight:300;
+    }
+  }
+}
+
+.donate-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: #44b549;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: all .3s;
+  &:hover {
+    opacity: .8;
+  }
+  .donate-qrcode {
+    display: inline-block;
+    padding-right: 5px;
+    vertical-align: -2px;
+    width: 16px;
+    height: 16px;
+    background: url("https://ooo.0o0.ooo/2017/03/09/58c16b1f3eaa4.png") no-repeat;
+  }
+}
+
+@keyframes blowUpModal {
+  0% {
+    transform:scale(0);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  #donate-modal-container {
+    .donate-modal-background {
+      .donate-modal {
+        padding: 20px;
+        width: 100%;
+      }
+      .donate-image {
+        width: 100%;
+      }
+    }
+  }
+}

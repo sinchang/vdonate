@@ -1,0 +1,24 @@
+{
+  "name": "vdonate",
+  "version": "1.0.0",
+  "description": "为你的网站增加个微信、支付宝二维码，方便读者打赏",
+  "main": "./dist/vdonate.min.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "keywords": [
+    "donate",
+    "wechat",
+    "alipay",
+    "javascript"
+  ],
+  "author": "sinchang <sinchangwen@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-airbnb": "^14.1.0",
+    "laravel-mix": "^0.8.8"
+  }
+}
