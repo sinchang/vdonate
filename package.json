@@ -1,6 +1,6 @@
 {
   "name": "vdonate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "为你的网站增加个微信、支付宝二维码，方便读者打赏",
   "main": "./dist/vdonate.min.js",
   "scripts": {

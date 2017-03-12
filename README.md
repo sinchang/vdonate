@@ -16,10 +16,11 @@ new Donate({
 });
 ```
 
-# API 
+# API
 
 - show() - 显示模态框
 - hide() - 隐藏模态框
+- destroy() - 销毁
 
 # License
 

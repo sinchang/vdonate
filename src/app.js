@@ -3,7 +3,7 @@ require('./app.scss');
 const defaults = {
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!',
   btnText: '打赏支持'
-}
+};
 
 const bd = document.body;
 
@@ -37,13 +37,13 @@ class Donate {
           </p>
           <div class="donate-tab">
             <a href="javascript:;" class="donate-wechat active" data-index="0">微信</a>
-            <a href="javascript:;" class="donate-alipay" data-index="1">支付宝</a> 
+            <a href="javascript:;" class="donate-alipay" data-index="1">支付宝</a>
             <img src="${this.options.wechatImage}" alt="wechat" class="donate-image active">
             <img src="${this.options.alipayImage}" alt="alipay" class="donate-image">
           </div>
         </div>
       </div>
-    `;
+    `
 
     var btnTpl = `
       <a href="javascript:;" class="donate-btn"><i class="donate-qrcode"></i>${this.options.btnText}</a>
@@ -57,35 +57,39 @@ class Donate {
   }
 
   bind() {
-    var btns = this.modal.querySelectorAll('.donate-tab a');
-    var images = this.modal.querySelectorAll('.donate-tab .donate-image');
+    var self = this;
+    this.btns = this.modal.querySelectorAll('.donate-tab a');
+    this.images = this.modal.querySelectorAll('.donate-tab .donate-image');
 
-    this.modal.addEventListener('click', (e) => {
-      e.stopPropagation();
-      var index = e.target.dataset.index;
-      if (index) {
-        [].slice.call(btns).forEach((btn) => {
-          btn.classList.toggle('active');
-        });
-        [].slice.call(images).forEach((image) => {
-          image.classList.toggle('active');
-        });
-        return;
-      }
-
-      this.hide();
-
-    }, false);
+    this.modal.addEventListener('click', this._modalEvent.bind(self), false);
 
     if (!this.el) {
       return;
     }
 
-    this.el.addEventListener('click', (e) => {
-      if (e.target.className === 'donate-btn') {
-        this.show();
-      }
-    }, false);
+    this.el.addEventListener('click', this._donateBtnEvent.bind(self), false);
+  }
+
+  _modalEvent(e) {
+    e.stopPropagation();
+    var index = e.target.dataset.index;
+    if (index) {
+      [].slice.call(this.btns).forEach((btn) => {
+        btn.classList.toggle('active');
+      });
+      [].slice.call(this.images).forEach((image) => {
+        image.classList.toggle('active');
+      });
+      return;
+    }
+
+    this.hide();
+  }
+
+  _donateBtnEvent(e) {
+    if (e.target.className === 'donate-btn') {
+      this.show();
+    }
   }
 
   show() {
@@ -95,6 +99,13 @@ class Donate {
   hide() {
     this.modal.classList.remove('active');
   }
+
+  destroy() {
+    var self = this;
+    this.modal.removeEventListener('click', this._modalEvent.bind(self), false);
+    this.el.removeEventListener('click', this._donateBtnEvent.bind(self), false);
+  }
+
 }
 
 module.exports = Donate;
