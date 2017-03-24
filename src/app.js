@@ -7,6 +7,8 @@ const defaults = {
 
 const bd = document.body;
 
+let isShow = false;
+
 class Donate {
   constructor(options) {
     if (arguments[0] && typeof arguments[0] === "object") {
@@ -93,17 +95,21 @@ class Donate {
   }
 
   show() {
+    if (isShow) return;
     this.modal.classList.add('active');
+    isShow = true;
   }
 
   hide() {
     this.modal.classList.remove('active');
+    isShow = false;
   }
 
   destroy() {
     var self = this;
     this.modal.removeEventListener('click', this._modalEvent.bind(self), false);
     this.el.removeEventListener('click', this._donateBtnEvent.bind(self), false);
+    bd.removeChild(this.modal);
   }
 
 }
