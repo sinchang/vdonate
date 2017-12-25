@@ -10,7 +10,7 @@
 new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
   btnText: '打赏按钮', // 可选参数，打赏按钮文字
-  el: document.getElementById('donate'), // 可选参数，打赏按钮的容器
+  el: document.getElementById('donate'), // 必选参数，打赏按钮的容器
   wechatImage: 'https://ooo.0o0.ooo/2017/03/09/58c15ca28db39.jpg', // 必选参数，微信收款二维码
   alipayImage: 'https://ooo.0o0.ooo/2017/03/09/58c15cb1ea865.jpg' // 必选参数，支付宝收款二维码
 });
