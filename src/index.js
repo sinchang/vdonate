@@ -1,4 +1,4 @@
-require('./app.scss');
+import './index.less'
 
 const defaults = {
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!',
@@ -9,7 +9,7 @@ const bd = document.body;
 
 let isShow = false;
 
-class Donate {
+export default class Donate {
   constructor(options) {
     if (arguments[0] && typeof arguments[0] === "object") {
       this.options = Object.assign({}, defaults, options);
@@ -113,5 +113,3 @@ class Donate {
   }
 
 }
-
-module.exports = Donate;

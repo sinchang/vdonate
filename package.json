@@ -4,21 +4,19 @@
   "description": "为你的网站增加个微信、支付宝二维码，方便读者打赏",
   "main": "./dist/vdonate.min.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
-    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
-    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
-    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "bili --format cjs,es,umd,umd-min",
+    "build:example": "poi build exmaple/index.js --out-dir example/dist",
+    "dev": "poi example/index.js"
   },
-  "keywords": [
-    "donate",
-    "wechat",
-    "alipay",
-    "javascript"
-  ],
+  "keywords": ["donate", "wechat", "alipay", "javascript"],
   "author": "sinchang <sinchangwen@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "bili": "^3.1.1",
     "eslint-config-airbnb": "^14.1.0",
-    "laravel-mix": "^0.8.8"
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "poi": "^10.1.6",
+    "rollup-plugin-postcss": "^1.6.1"
   }
 }
