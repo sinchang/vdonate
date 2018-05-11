@@ -5,7 +5,7 @@
   "main": "./dist/vdonate.min.js",
   "scripts": {
     "build": "bili --format cjs,es,umd,umd-min",
-    "build:example": "poi build exmaple/index.js --out-dir example/dist",
+    "build:example": "poi build example/index.js --out-dir example/dist",
     "dev": "poi example/index.js"
   },
   "keywords": ["donate", "wechat", "alipay", "javascript"],
